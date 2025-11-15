@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>H & H Househelp Recruit — Jobs & Placement (Template)</title>
+  <meta name="description" content="Recruitment and placement for househelps. List jobs, accept applications, and showcase services. Editable template for Google Sites / Drive embedding." />
+
+  <!--
+    INSTRUCTIONS
+    1) Open this file in the canvas. Copy the entire HTML and paste it when you use Google Sites -> Insert -> Embed -> Embed Code.
+       Alternatively upload this file to a web host that serves HTML and use the URL in Sites' Embed -> By URL.
+    2) To accept applications use Google Forms: create a form, copy the form link, then replace FORM_LINK_HERE in the code below.
+    3) Replace placeholder images with images hosted on Google Drive or any public URL. For Drive images, use the "shareable link" and convert to direct image link:
+       https://drive.google.com/uc?export=view&id=DRIVE_FILE_ID
+    4) To edit text, change content inside the sections. Fonts are loaded from Google Fonts.
+    5) Ask me to customize colors, copy, or job-details and I'll update the file.
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#D97706; /* warm amber */
+      --accent-dark:#b35a03;
+      --muted:#6b7280;
+      --bg:#fff8f2;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background: linear-gradient(180deg,#fff 0%,#fff8f2 100%);color:#111}
+    a{color:var(--accent);text-decoration:none}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:transparent}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ef4444);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Nunito',sans-serif}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:14px;align-items:center}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:white;font-weight:600}
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:44px 28px;max-width:1200px;margin:20px auto
+    }
+    .hero-left{max-width:720px}
+    .kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,rgba(217,119,6,0.12),rgba(239,68,68,0.06));border-radius:999px;color:var(--accent-dark);font-weight:700;margin-bottom:18px}
+    h2{font-size:34px;margin:6px 0 12px;line-height:1.02}
+    p.lead{color:var(--muted);margin-bottom:18px}
+
+    .search-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--glass));backdrop-filter: blur(6px);padding:14px;border-radius:12px;box-shadow:0 6px 24px rgba(15,23,42,0.06);display:flex;gap:8px;align-items:center}
+    .search-card input{flex:1;border:0;padding:10px 12px;font-size:15px;border-radius:8px}
+    .search-card select{border:0;padding:8px;border-radius:8px}
+
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(17,24,39,0.06)}
+    .job-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:14px}
+    .job{padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);border:1px solid #f3f4f6}
+    .job h3{margin:6px 0;font-size:18px}
+    .meta{color:var(--muted);font-size:13px}
+    .apply{display:inline-block;margin-top:10px;padding:8px 10px;border-radius:10px;background:var(--accent);color:white;font-weight:700}
+
+    .hero-right .promo-img{width:100%;height:300px;border-radius:12px;background-image: radial-gradient(circle at 10% 10%, rgba(217,119,6,0.12), transparent 10%), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=');background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:18px;color:white;box-shadow:inset 0 -40px 60px rgba(0,0,0,0.18)}
+    .badge{background:rgba(255,255,255,0.12);padding:8px 12px;border-radius:999px;font-weight:700}
+
+    main{max-width:1200px;margin:18px auto;padding:0 22px}
+    .grid-2{display:grid;grid-template-columns:1fr 360px;gap:20px}
+
+    section.about{margin-top:18px;padding:22px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.9),#fff);box-shadow:0 10px 30px rgba(15,23,42,0.04)}
+    ul.bullets{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0;margin:12px 0 0;list-style:none}
+    ul.bullets li{background:#fff8f0;border-radius:10px;padding:10px;color:var(--muted);font-weight:600}
+
+    .contact{padding:18px;border-radius:12px}
+    footer{padding:24px;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .grid-2{grid-template-columns:1fr}
+      .hero-right .promo-img{height:220px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">H&H</div>
+      <div>
+        <h1>H & H Househelp Recruit</h1>
+        <div style="font-size:12px;color:var(--muted)">Connecting trusted househelps with families across Ghana</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#jobs">Jobs</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#apply">Apply</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <span class="kicker">Now hiring — immediate starts</span>
+      <h2>Find trusted househelps or get a stable job — fast.</h2>
+      <p class="lead">We recruit, vet, and place househelps across Greater Accra, Kumasi, Takoradi and other regions. Browse verified profiles, post requests, and get matched within days.</p>
+
+      <div class="search-card card">
+        <input id="q" placeholder="Search by role, city, skill (e.g. nanny, cook, Accra)" />
+        <select id="region"><option>All regions</option><option>Greater Accra</option><option>Ashanti</option><option>Western</option><option>Central</option></select>
+        <button class="btn" onclick="doSearch()">Search</button>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <strong>Why families choose H & H</strong>
+        <ul class="bullets">
+          <li>Vetted Profiles</li>
+          <li>Training & orientation</li>
+          <li>Local placement teams</li>
+          <li>After-placement support</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="hero-right">
+      <div class="promo-img card">
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+          <div class="badge">Trusted in Ghana</div>
+          <div style="font-weight:700">Hire with background checks and references</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;padding:12px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;color:var(--muted)">Open positions</div>
+          <div style="font-weight:800;font-size:18px">54 active</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px;color:var(--muted)">Avg placement</div>
+          <div style="font-weight:700">3–7 days</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <main>
+    <section id="jobs" class="card" style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 style="font-size:20px;margin:0">Available Jobs</h2>
+        <a href="#apply" class="apply">Post a job</a>
+      </div>
+
+      <div class="job-list" id="jobList">
+        <!-- Job cards are rendered by JS. Edit defaultJobs in the script to change samples. -->
+      </div>
+    </section>
+
+    <div class="grid-2" style="margin-top:18px">
+      <section id="how" class="about">
+        <h3>How it works</h3>
+        <ol style="padding-left:18px;color:var(--muted)">
+          <li><strong>Post or browse jobs.</strong> Families list role, location and benefits.</li>
+          <li><strong>We screen candidates.</strong> Background checks, references and interview.</li>
+          <li><strong>Placement & support.</strong> We follow up for 30 days to make sure everything goes well.</li>
+        </ol>
+
+        <h4 style="margin-top:12px">For job seekers</h4>
+        <p style="color:var(--muted)">Create a profile, upload reference contacts, and apply to listings. We also run short skills orientation sessions for nannies, cooks and caregivers.</p>
+      </section>
+
+      <aside class="card contact">
+        <h4 style="margin:0 0 10px 0">Apply / Contact</h4>
+        <p style="color:var(--muted);margin:0 0 10px 0">To apply or send referrals, use our application form.</p>
+        <a id="apply" class="btn" href="FORM_LINK_HERE" target="_blank">Open application form</a>
+
+        <div style="margin-top:12px">
+          <strong>Phone</strong>
+          <div style="color:var(--muted)">+233 24 000 0000</div>
+          <strong style="margin-top:8px;display:block">Email</strong>
+          <div style="color:var(--muted)">jobs@hhsolutionsgh.com</div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about" class="card" style="margin-top:18px">
+      <h3>About H & H Solutions</h3>
+      <p style="color:var(--muted)">H & H Solutions is a Ghanaian househelp recruitment and placement service with experience matching families and workers responsibly. We prioritize safety, training, and fair working conditions.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px">
+        <div style="background:#fff8f0;padding:12px;border-radius:10px;text-align:center">Vetting</div>
+        <div style="background:#fff8f0;padding:12px;border-radius:10px;text-align:center">Training</div>
+        <div style="background:#fff8f0;padding:12px;border-radius:10px;text-align:center">Placement</div>
+        <div style="background:#fff8f0;padding:12px;border-radius:10px;text-align:center">Aftercare</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width:1000px;margin:0 auto;padding:18px;color:var(--muted)">
+      © <span id="year"></span> H & H Solutions — Househelp recruitment across Ghana • <a href="#about">Learn more</a>
+    </div>
+  </footer>
+
+  <script>
+    // update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // sample job data — edit or replace with server data
+    const defaultJobs = [
+      {title:'Full-time Househelp (Accra)',location:'Greater Accra',salary:'GHS 700 - 900 / month',type:'Full-Time',id:'J001',desc:'Cooking, cleaning, laundry. Live-out.'},
+      {title:'Nanny / Childcare (Kumasi)',location:'Ashanti',salary:'GHS 650 / month',type:'Full-Time',id:'J002',desc:'Care for two children aged 2 and 5. Experience preferred.'},
+      {title:'Cook (Private household, Takoradi)',location:'Western',salary:'GHS 600 / month',type:'Full-Time',id:'J003',desc:'Prepare local meals, menu planning.'},
+      {title:'Evening Cleaner (Part-time, Cape Coast)',location:'Central',salary:'GHS 200 / week',type:'Part-Time',id:'J004',desc:'Evening cleaning and occasional ironing.'}
+    ];
+
+    function renderJobs(list){
+      const root = document.getElementById('jobList');
+      root.innerHTML='';
+      list.forEach(j=>{
+        const el = document.createElement('div'); el.className='job';
+        el.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <div>
+              <h3>${escapeHtml(j.title)}</h3>
+              <div class="meta">${escapeHtml(j.location)} • ${escapeHtml(j.type)}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800">${escapeHtml(j.salary)}</div>
+              <div class="meta">Ref: ${escapeHtml(j.id)}</div>
+            </div>
+          </div>
+          <p style="color:var(--muted);margin:8px 0">${escapeHtml(j.desc)}</p>
+          <a class="apply" href="FORM_LINK_HERE" target="_blank">Apply</a>
+        `;
+        root.appendChild(el);
+      })
+    }
+
+    function escapeHtml(s){
+      if(!s) return '';
+      return (''+s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})
+    }
+
+    function doSearch(){
+      const q = (document.getElementById('q').value||'').toLowerCase();
+      const region = (document.getElementById('region').value||'').toLowerCase();
+      const filtered = defaultJobs.filter(j=>{
+        const inQ = !q || (j.title+ ' ' + j.desc + ' ' + j.location).toLowerCase().includes(q);
+        const inRegion = region==='all regions' || !region || j.location.toLowerCase().includes(region);
+        return inQ && inRegion;
+      });
+      renderJobs(filtered);
+    }
+
+    // init
+    renderJobs(defaultJobs);
+  </script>
+</body>
+</html>
